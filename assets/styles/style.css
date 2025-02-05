@@ -118,9 +118,10 @@ ul li a:hover {
     width: 100vmin;
     display: flex;
     flex-direction: column;
+    padding: 3em;
     position: absolute;
-    top: 30%;
-    left: 45%;
+    top: 25%;
+    left: 40%;
 }
 
 .about h1 {
@@ -139,7 +140,6 @@ ul li a:hover {
     justify-content: center;
     position: absolute;
     top: 100%;
-    left: 2%;
 }
 
 .project-container h2{
@@ -161,6 +161,8 @@ ul li a:hover {
 .project {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -217,12 +219,13 @@ ul li a:hover {
 
 footer {
     width: 100vw;
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 210%;
+    top: 92%;
     padding: 5px 0;
+    margin: 0;
     background-color: #1e1e1f;
 }
 
