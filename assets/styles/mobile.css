@@ -32,13 +32,13 @@
 }
 
 .about {
-    width: 90vmin;
+    width: 100vmin;
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 40%;
-    left: 5%;
-    margin-top: 3em;
+    left: 2%;
+    margin-top: 2em;
 }
 
 .about h1 {
