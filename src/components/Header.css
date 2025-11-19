@@ -1,7 +1,7 @@
 .head {
   width: 100%;
   background: transparent;
-  padding: 32px 0 0 0;
+  padding: 0;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
@@ -11,10 +11,9 @@
 .desktop-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   gap: 80px;
-  width: 80%; /* Mesma largura da line */
-  max-width: 1200px; /* Largura máxima */
+  width: 80%; 
 }
 
 /* Mobile Menu - oculto no desktop por padrão */
@@ -23,9 +22,9 @@
 }
 
 @media (max-width: 900px) {
-        .head {
-        padding: 10px 0 0 0; 
-    }
+  .head {
+    padding: 0;
+  }
     .menu-desktop {
         display: none !important;
     }
@@ -58,8 +57,8 @@
     }
 
     .portfolio {
-    font-size: 48px;
-    color: #1e41b4;
+    font-size: 58px;
+    color: #2354f7;
     font-weight: 700;
     letter-spacing: 2px;
     margin: 0;
@@ -74,8 +73,8 @@
 
     .menu-desktop li a {
     text-decoration: none;
-    color: #1e41b4;
-    font-size: 20px;
+    color: #2354f7;
+    font-size: 36px;
     font-weight: 500;
     transition: color 0.2s;
     }
@@ -87,7 +86,7 @@
     .line {
     width: 80%;
     height: 2px;
-    background-color: #1e41b4;
+    background-color: #2354f7;
     margin: 0 auto 32px auto;
     border-radius: 2px;
     }

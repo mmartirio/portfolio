@@ -23,13 +23,13 @@
 }
 .footer-social img {
   width: 50px;
-  background-color: #1e41b4;
+  background-color: #2354f7;
   margin: 0 8px;
   transition: filter 0.2s, transform 0.2s;
   border-radius: 10px;
   border: none;
 }
 .footer-social img:hover {
-    background-color: #1e41b4;
+    background-color: #2354f7;
     transform: scale(1.15);
 }

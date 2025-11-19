@@ -32,7 +32,7 @@
   width: 35px;
   height: 10px;
   margin-bottom: 10px;
-  background-color: #1e41b4;
+  background-color: #2354f7;
   border-radius: 3px;
   transition: all ease .2s;
 }
@@ -95,7 +95,7 @@ ul.open li a {
 }
 
 ul.open li a:hover {
-  color: #1e41b4;
+  color: #2354f7;
   background: #163083;
     width: 88px;
 }

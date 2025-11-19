@@ -1,4 +1,5 @@
 import './Profile.css';
+import About from './About';
 
 export default function Profile() {
     return (
@@ -16,6 +17,7 @@ export default function Profile() {
             <div className="svg-circle"><img src="/src/assets/java.svg" alt="Java" className="svg-icon-small" /></div>
             </div>
         </div>
+        <About />
         </section>
     );
 }
