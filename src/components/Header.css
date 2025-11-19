@@ -21,7 +21,7 @@
   display: none;
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .head {
     padding: 0;
   }
@@ -36,15 +36,14 @@
     .desktop-nav {
         margin: 0 auto;
         justify-content: space-around;
-        gap: 10px;
-        padding: 0 50px;
+        gap: 22px;
+        padding: 0 5px;
         width: 80%; 
     }
     
-    .portfolio {
-        font-size: 22px;
+    .desktop-nav h1 {
+        font-size: 46px;
         margin: 0;
-        margin-left: 15px;
     }
     }
 
@@ -85,8 +84,8 @@
 
     .line {
     width: 80%;
-    height: 2px;
-    background-color: #2354f7;
-    margin: 0 auto 32px auto;
-    border-radius: 2px;
+    height: 4px;
+    background: #2354f7;
+    margin: 0 auto 48px auto;
+    border-radius: 4px;
     }

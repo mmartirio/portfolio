@@ -22,14 +22,25 @@
   gap: 32px;
 }
 .footer-social img {
-  width: 50px;
-  background-color: #2354f7;
-  margin: 0 8px;
-  transition: filter 0.2s, transform 0.2s;
-  border-radius: 10px;
-  border: none;
+    width: 50px;
+    background: linear-gradient(135deg, #2354f7, #6478f7);
+    margin: 0 8px;
+    transition: filter 0.2s, transform 0.2s;
+    border-radius: 10px;
+    border: none;
 }
 .footer-social img:hover {
-    background-color: #2354f7;
-    transform: scale(1.15);
+    background: linear-gradient(135deg, #142b77, #2354f7);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+
+    .footer-social img {
+        width: 55px;
+    }
+    .footer-copy {
+        font-size: 14px;
+    }
 }
