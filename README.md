@@ -1,16 +1,115 @@
-# React + Vite
+# Meu Portfólio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao meu portfólio! Aqui você encontrará informações sobre mim, meus projetos e como entrar em contato.
 
-Currently, two official plugins are available:
+## Índice
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## Sobre Mim
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Olá! Meu nome é Marcos Martírio, e sou um desenvolvedor Front-End com 15 anos de experiência em suporte de TI. Em junho de 2022, decidi migrar de carreira para me tornar um desenvolvedor. Tenho facilidade em lidar com design e composições visuais, e estou consolidando meu conhecimento em React.js.
 
-## Expanding the ESLint configuration
+## Principais Projetos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Gerenciador de Custos de Projetos
+
+!Gerenciador de Custos de Projetos
+
+Este é um gerenciador de custos criado durante um treinamento no canal Hora de Codar no YouTube.
+Ver Projeto
+
+### Tela de Login
+
+!Tela de Login
+
+Projeto simples de criação de tela de login utilizando HTML, CSS e JavaScript.
+Ver Projeto
+
+### Lista de Compras Web
+
+!Lista de Compras Web
+
+Projeto em andamento utilizando a biblioteca React.js para criar uma lista de compras web.
+Ver Projeto
+
+### Calculadora de Combustível Web
+
+!Calculadora de Combustível Web
+
+Projeto desenvolvido na faculdade para treinar o conhecimento em React.js.
+Ver Projeto
+
+## Portfólio Completo
+
+Para ver todos os meus projetos, visite meu portfólio completo:
+[Meu Portfólio](https://mmartirio.github.io/PORTFOLIO/)
+
+## Contato
+
+Para mais informações, entre em contato comigo através das redes sociais:
+
+
+
+Obrigado por visitar meu portfólio!
+>>>>>>> bd356c84be72b476a1cd1e32aa73f5450fed9d6a
+
+# Meu Portfólio
+
+Bem-vindo ao meu portfólio! Aqui você encontrará informações sobre mim, meus projetos e como entrar em contato.
+
+## Índice
+
+- Sobre Mim
+- Principais Projetos
+- Contato
+
+## Sobre Mim
+
+Olá! Meu nome é Marcos Martírio, e sou um desenvolvedor Front-End com 15 anos de experiência em suporte de TI. Em junho de 2022, decidi migrar de carreira para me tornar um desenvolvedor. Tenho facilidade em lidar com design e composições visuais, e estou consolidando meu conhecimento em React.js.
+
+## Principais Projetos
+
+### Gerenciador de Custos de Projetos
+
+!Gerenciador de Custos de Projetos
+
+Este é um gerenciador de custos criado durante um treinamento no canal Hora de Codar no YouTube.
+Ver Projeto
+
+### Tela de Login
+
+!Tela de Login
+
+Projeto simples de criação de tela de login utilizando HTML, CSS e JavaScript.
+Ver Projeto
+
+### Lista de Compras Web
+
+!Lista de Compras Web
+
+Projeto em andamento utilizando a biblioteca React.js para criar uma lista de compras web.
+Ver Projeto
+
+### Calculadora de Combustível Web
+
+!Calculadora de Combustível Web
+
+Projeto desenvolvido na faculdade para treinar o conhecimento em React.js.
+Ver Projeto
+
+## Portfólio Completo
+
+Para ver todos os meus projetos, visite meu portfólio completo:
+[Meu Portfólio](https://mmartirio.github.io/PORTFOLIO/)
+
+## Contato
+
+Para mais informações, entre em contato comigo através das redes sociais:
+
+- WhatsApp
+- LinkedIn
+- GitHub
+
+---
+
+Obrigado por visitar meu portfólio!
