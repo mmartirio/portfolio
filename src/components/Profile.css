@@ -1,0 +1,38 @@
+.name-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 70px;
+  width: 100%;
+  max-width: 600px;
+  background-image: url('/assets/background-img.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 32px 0;
+}
+
+.name-profile img {
+  width: 250px;
+  height: 250px;
+  background-color: #1e41b4;
+  border-radius: 50%;
+  margin-bottom: 50px;
+  object-fit: contain; 
+}
+.name-profile h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color:  #1e41b4;
+}
+.name-profile h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color:  #1e41b4;
+}
+.name-profile span {
+  color: #ffffff;
+}
+

@@ -1,0 +1,30 @@
+.about {
+    width: 80%;
+    background: transparent;
+    padding: 32px 0 0 0;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+.about h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1e41b4;
+}
+.about p {
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+.lineAbout {
+    width: 100%;
+    height: 2px;
+    background-color: #1e41b4;
+    margin: 0 auto 32px auto;
+    border-radius: 2px;
+}
