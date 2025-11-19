@@ -1,12 +1,24 @@
 .mobile-nav {
   position: relative;
-  width: auto; /* Remove a largura fixa de 80vw */
+  width: 100%; 
 }
 
-@media (min-width: 901px) {
+@media (min-width: 900px) {
   .mobile-nav {
     display: none !important;
   }
+}
+
+@media screen and (max-width: 900px) {
+  .menu-faketrigger {
+    margin-right: 30px;
+}
+}
+
+@media screen and (max-width: 500px) {
+  .menu-faketrigger {
+    margin-right: 0;
+}
 }
 
 .menu-faketrigger {
@@ -14,7 +26,7 @@
   z-index: 1000;
   width: 35px;
   height: 35px;
-  opacity: 0;
+    opacity: 0;
   cursor: pointer;
 }
 
