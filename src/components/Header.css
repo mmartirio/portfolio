@@ -21,96 +21,152 @@
   display: none;
 }
 
-@media screen and (max-width: 1080px) {
+/* Media Query para 1080px de largura (orientação paisagem) */
+@media screen and (max-width: 1080px) and (min-width: 961px) {
   .desktop-nav {
-    gap: 60px;
-    width: 85%;
+    gap: 50px;
+    width: 90%;
   }
   
   .portfolio {
-    font-size: 52px;
+    font-size: 48px;
   }
   
   .menu-desktop {
-    gap: 28px;
+    gap: 24px;
   }
   
   .menu-desktop li a {
-    font-size: 32px;
+    font-size: 28px;
   }
   
   .line {
-    width: 85%;
-    margin: 0 auto 40px auto;
+    width: 90%;
+    margin: 0 auto 35px auto;
   }
 }
 
+/* Media Query para dispositivos móveis com alta resolução */
 @media screen and (max-width: 960px) {
   .head {
     padding: 0;
+    margin-bottom: 40px;
   }
-    .menu-desktop {
-        display: none !important;
-    }
-    
-    .mobile-menu {
-        display: block;
-    }
-    
-    .desktop-nav {
-        margin: 0 auto;
-        justify-content: space-around;
-        gap: 22px;
-        padding: 0 5px;
-        width: 80%; 
-    }
-    
-    .desktop-nav h1 {
-        font-size: 46px;
-        margin: 0;
-        margin-left: 20px;
-    }
-    }
-
-    nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    width: 80%;
-    }
-
-    .portfolio {
-    font-size: 58px;
-    color: #2354f7;
-    font-weight: 700;
-    letter-spacing: 2px;
+  
+  .menu-desktop {
+    display: none !important;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  .desktop-nav {
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 20px;
+    width: 100%; 
+  }
+  
+  .desktop-nav h1 {
+    font-size: 42px;
     margin: 0;
-    }
+  }
+  
+  .portfolio {
+    font-size: 42px;
+    letter-spacing: 1.5px;
+  }
+  
+  .line {
+    width: 95%;
+    height: 3px;
+    margin: 0 auto 30px auto;
+  }
+}
 
-    .menu-desktop {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-    margin: 0;
-    }
-
-    .menu-desktop li a {
-    text-decoration: none;
-    color: #2354f7;
-    font-size: 36px;
-    font-weight: 500;
-    transition: color 0.2s;
-    }
-
-    .menu-desktop li a:hover {
-    color: #142a72;
-    }
-
-    .line {
-    width: 80%;
+/* Media Query adicional para telas muito altas (orientação retrato) */
+@media screen and (max-width: 960px) and (min-height: 2000px) {
+  .head {
+    margin-bottom: 60px;
+  }
+  
+  .desktop-nav {
+    padding: 0 30px;
+  }
+  
+  .portfolio {
+    font-size: 46px;
+  }
+  
+  .line {
+    margin: 0 auto 40px auto;
     height: 4px;
-    background: #2354f7;
-    margin: 0 auto 48px auto;
-    border-radius: 4px;
-    }
+  }
+}
+
+/* Ajuste para telas menores que 480px */
+@media screen and (max-width: 480px) {
+  .desktop-nav {
+    gap: 10px;
+    padding: 0 15px;
+  }
+  
+  .desktop-nav h1 {
+    font-size: 36px;
+  }
+  
+  .portfolio {
+    font-size: 36px;
+    letter-spacing: 1px;
+  }
+  
+  .line {
+    width: 90%;
+    margin: 0 auto 25px auto;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 80%;
+}
+
+.portfolio {
+  font-size: 58px;
+  color: #2354f7;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.menu-desktop {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  margin: 0;
+}
+
+.menu-desktop li a {
+  text-decoration: none;
+  color: #2354f7;
+  font-size: 36px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.menu-desktop li a:hover {
+  color: #142a72;
+}
+
+.line {
+  width: 80%;
+  height: 4px;
+  background: #2354f7;
+  margin: 0 auto 48px auto;
+  border-radius: 4px;
+}
