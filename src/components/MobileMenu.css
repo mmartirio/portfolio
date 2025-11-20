@@ -15,9 +15,9 @@
 }
 }
 
-@media screen and (max-width: 901px) {
+@media screen and (max-width: 1030px) {
   .menu-faketrigger {
-    margin-right: 35px;
+    margin-right: 70px;
 }
 }
 
