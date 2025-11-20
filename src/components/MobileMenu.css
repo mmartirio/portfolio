@@ -1,130 +1,139 @@
 .mobile-nav {
   position: relative;
   width: 100%; 
+  margin-bottom: 10px;
 }
 
-@media (min-width: 900px) {
+/* Esconde completamente em telas grandes */
+@media (min-width: 901px) {
   .mobile-nav {
     display: none !important;
   }
 }
 
-@media screen and (max-width: 900px) {
-  .menu-faketrigger {
-    margin-right: 30px;
-}
-}
-
-@media screen and (max-width: 1030px) {
-  .menu-faketrigger {
-    margin-right: 70px;
-}
-}
-
-@media screen and (max-width: 400px) {
-  .menu-faketrigger {
-    margin-right: 0;
+/* Para mobile - até 900px */
+@media (max-width: 900px) {
+  .mobile-nav {
+    display: block;
   }
-}
-
-.menu-faketrigger {
-  display: flex;
-  z-index: 1000;
-  width: 35px;
-  height: 35px;
+  
+  .menu-faketrigger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 35px;
+    height: 35px;
     opacity: 0;
-  cursor: pointer;
-}
-
-.menu-mobile {
-  display: flex;
-  flex-direction: column;
-  z-index: 999;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-}
-
-.menu-mobile span {
-  display: block;
-  width: 35px;
-  height: 10px;
-  margin-bottom: 10px;
-  background-color: #2354f7;
-  border-radius: 3px;
-  transition: all ease .2s;
-}
-
-.menu-mobile span.open:nth-child(1) {
-  transform-origin: 0% 0%;
-  transform: rotate(45deg);
-}
-
-.menu-mobile span.open:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-mobile span.open:nth-child(3) {
-  transform-origin: 0% 100%;
-  transform: rotate(-45deg);
-}
-
-ul.mobile {
-  display: none;
-}
-
-ul {
+    cursor: pointer;
+    margin-right: 30px;
+  }
+  
+  .menu-mobile {
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 30px;
+  }
+  
+  .menu-mobile span {
+    display: block;
+    width: 35px;
+    height: 4px;
+    margin-bottom: 6px;
+    background-color: #2354f7;
+    border-radius: 3px;
+    transition: all ease .2s;
+  }
+  
+  .menu-mobile span.open:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 4px);
+  }
+  
+  .menu-mobile span.open:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-mobile span.open:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -4px);
+  }
+  
+  /* Menu items - ESCONDIDOS por padrão */
+  .mobile-nav ul {
+    display: none !important;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 150px;
+    z-index: 998;
+    flex-direction: column;
+    padding: 10px 0;
+    background-color: #323233;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     list-style: none;
-}
-
-ul.open {
-  display: flex;
-  width: 120px;
-  z-index: 2;
-  flex-direction: column;
-  padding: 10px 0;
-  top: 45px;
-  right: 0;
-  background-color: #323233;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-  animation: menuFadeIn 0.3s;
-  position: absolute;
-}
-
-ul.open li {
-  position: relative;
-  transition: all ease-in .2s;
-  margin: 0.5em 0;
-  text-align: left;
-  width: 100%;
-
-}
-
-ul.open li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  display: block;
-  width: 100%;
-  text-align: left;
-}
-
-ul.open li a:hover {
-  color: #2354f7;
-  background: #163083;
-    width: 88px;
+    margin: 0;
+  }
+  
+  /* Só mostra quando tem a classe open */
+  .mobile-nav ul.open {
+    display: flex !important;
+    animation: menuFadeIn 0.3s;
+  }
+  
+  .mobile-nav ul li {
+    margin: 0.3em 0;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .mobile-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav ul li a:hover {
+    color: #2354f7;
+    background: #163083;
+  }
+  
+  /* Ajustes de margens para diferentes tamanhos */
+  @media (max-width: 968px) {
+    .menu-faketrigger,
+    .menu-mobile {
+      margin-right: 140px;
+    }
+  }
+  
+  @media (max-width: 665px) {
+    .menu-faketrigger,
+    .menu-mobile {
+      margin-right: 30px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .menu-faketrigger,
+    .menu-mobile {
+      margin-right: 0;
+    }
+  }
 }
 
 @keyframes menuFadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@media (min-width: 721px) {
-  .mobile-nav {
-    display: none;
-  }
 }
