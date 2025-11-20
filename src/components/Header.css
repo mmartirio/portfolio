@@ -23,10 +23,19 @@
 
 /* Media Query para 1080px de largura (orientação paisagem) */
 @media screen and (max-width: 1080px) and (min-width: 961px) {
-  .desktop-nav {
-    gap: 50px;
-    width: 90%;
+  .head {
+    width: 80%;
+    margin-bottom: 45px;
   }
+
+  .desktop-nav {
+    width: 80%;
+    padding: 0 10px;
+    gap: 5px;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  
   
   .portfolio {
     font-size: 48px;
@@ -46,7 +55,7 @@
   }
 }
 
-/* Media Query para dispositivos móveis com alta resolução */
+/* Media Query para dispositivos móveis */
 @media screen and (max-width: 960px) {
   .head {
     padding: 0;
@@ -62,11 +71,12 @@
   }
   
   .desktop-nav {
+    width: 80%;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 15px;
-    padding: 0 20px;
-    width: 100%; 
+    padding: 0 10px;
+    margin-bottom: 10px;
   }
   
   .desktop-nav h1 {
@@ -80,9 +90,98 @@
   }
   
   .line {
-    width: 95%;
+    width: 90%;
     height: 3px;
     margin: 0 auto 30px auto;
+  }
+}
+
+/* Media Query para 600px */
+@media screen and (max-width: 600px) {
+  .head {
+    margin-bottom: 35px;
+  }
+  
+  .desktop-nav {
+    width: 80%;
+    padding: 0 10px;
+    gap: 5px;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  
+  .desktop-nav h1 {
+    font-size: 38px;
+  }
+  
+  .portfolio {
+    font-size: 38px;
+    letter-spacing: 1.2px;
+  }
+  
+  .line {
+    width: 92%;
+    height: 3px;
+    margin: 0 auto 28px auto;
+  }
+}
+
+/* Media Query para 400px */
+@media screen and (max-width: 400px) {
+  .head {
+    margin-bottom: 30px;
+  }
+  
+  .desktop-nav {
+    padding: 0 8px;
+    gap: 5px;
+    justify-content: space-around;
+  }
+  
+  .desktop-nav h1 {
+    font-size: 32px;
+  }
+  
+  .portfolio {
+    font-size: 32px;
+    letter-spacing: 1px;
+  }
+  
+  .line {
+    width: 90%;
+    height: 2.5px;
+    margin: 0 auto 25px auto;
+  }
+}
+
+/* Media Query para 240px */
+@media screen and (max-width: 240px) {
+  .head {
+    margin-bottom: 20px;
+  }
+  
+  .desktop-nav {
+    padding: 0 5px;
+    gap: 2px;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .desktop-nav h1 {
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .portfolio {
+    font-size: 24px;
+    letter-spacing: 0.5px;
+  }
+  
+  .line {
+    width: 85%;
+    height: 2px;
+    margin: 0 auto 20px auto;
   }
 }
 
@@ -93,7 +192,8 @@
   }
   
   .desktop-nav {
-    padding: 0 30px;
+    padding: 0 20px;
+    justify-content: space-around;
   }
   
   .portfolio {
@@ -103,28 +203,6 @@
   .line {
     margin: 0 auto 40px auto;
     height: 4px;
-  }
-}
-
-/* Ajuste para telas menores que 480px */
-@media screen and (max-width: 480px) {
-  .desktop-nav {
-    gap: 10px;
-    padding: 0 15px;
-  }
-  
-  .desktop-nav h1 {
-    font-size: 36px;
-  }
-  
-  .portfolio {
-    font-size: 36px;
-    letter-spacing: 1px;
-  }
-  
-  .line {
-    width: 90%;
-    margin: 0 auto 25px auto;
   }
 }
 

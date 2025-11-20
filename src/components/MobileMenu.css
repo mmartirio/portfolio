@@ -26,7 +26,6 @@
     height: 35px;
     opacity: 0;
     cursor: pointer;
-    margin-right: 30px;
   }
   
   .menu-mobile {
@@ -39,7 +38,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    margin-right: 30px;
   }
   
   .menu-mobile span {
@@ -66,7 +64,6 @@
   
   /* Menu items - ESCONDIDOS por padrão */
   .mobile-nav ul {
-    display: none !important;
     position: absolute;
     top: 45px;
     right: 0;
@@ -79,12 +76,19 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     list-style: none;
     margin: 0;
+    
+    /* CORREÇÃO: Esconder por padrão */
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   /* Só mostra quando tem a classe open */
   .mobile-nav ul.open {
-    display: flex !important;
-    animation: menuFadeIn 0.3s;
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .mobile-nav ul li {
@@ -121,7 +125,7 @@
   @media (max-width: 665px) {
     .menu-faketrigger,
     .menu-mobile {
-      margin-right: 30px;
+      margin-right: 10px;
     }
   }
   
@@ -131,9 +135,4 @@
       margin-right: 0;
     }
   }
-}
-
-@keyframes menuFadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
