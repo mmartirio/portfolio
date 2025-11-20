@@ -15,10 +15,16 @@
 }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 901px) {
+  .menu-faketrigger {
+    margin-right: 35px;
+}
+}
+
+@media screen and (max-width: 400px) {
   .menu-faketrigger {
     margin-right: 0;
-}
+  }
 }
 
 .menu-faketrigger {
