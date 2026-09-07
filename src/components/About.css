@@ -1,45 +1,42 @@
 .about {
-    width: 80%;
-    background: transparent;
-    padding: 32px 0 0 0;
-    margin-bottom: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #292929;
+    padding: 116px max(24px, calc((100vw - 1180px) / 2)) 132px;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #ffffff;
 }
+
 .about h2 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 16px;
+    align-self: flex-start;
+    width: 100%;
+    margin: 0 0 18px;
     color: #2354f7;
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.25rem);
+    font-weight: 500;
+    line-height: 1;
+    text-align: left;
 }
 .about p {
-    text-align: justify;
+    max-width: none;
+    width: 100%;
+    margin: 0 0 14px;
     line-height: 1.7;
-    font-size: 20px;
-}
-
-.lineAbout {
-    width: 120px;
-    height: 4px;
-    background: linear-gradient(90deg, #2354f7, #6478f7);
-    margin: 0 auto 48px auto;
-    border-radius: 4px;
+    font-size: 1rem;
+    text-align: left;
 }
 
 @media screen and (max-width: 900px) {
     .about {
-        width: 90%;
-        padding: 24px 0 0 0;
-    }
-    .about h2 {
-        font-size: 32px;
-        margin-bottom: 12px;
+        padding: 40px 24px;
     }
     .about p {
-        font-size: 18px;
+        font-size: 0.95rem;
     }
     
 }

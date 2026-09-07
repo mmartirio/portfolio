@@ -49,10 +49,6 @@
     font-size: 28px;
   }
   
-  .line {
-    width: 90%;
-    margin: 0 auto 35px auto;
-  }
 }
 
 /* Media Query para dispositivos móveis */
@@ -89,11 +85,6 @@
     letter-spacing: 1.5px;
   }
   
-  .line {
-    width: 90%;
-    height: 3px;
-    margin: 0 auto 30px auto;
-  }
 }
 
 /* Media Query para 600px */
@@ -119,11 +110,6 @@
     letter-spacing: 1.2px;
   }
   
-  .line {
-    width: 92%;
-    height: 3px;
-    margin: 0 auto 28px auto;
-  }
 }
 
 /* Media Query para 400px */
@@ -147,11 +133,6 @@
     letter-spacing: 1px;
   }
   
-  .line {
-    width: 90%;
-    height: 2.5px;
-    margin: 0 auto 25px auto;
-  }
 }
 
 /* Media Query para 240px */
@@ -178,11 +159,6 @@
     letter-spacing: 0.5px;
   }
   
-  .line {
-    width: 85%;
-    height: 2px;
-    margin: 0 auto 20px auto;
-  }
 }
 
 /* Media Query adicional para telas muito altas (orientação retrato) */
@@ -200,10 +176,6 @@
     font-size: 46px;
   }
   
-  .line {
-    margin: 0 auto 40px auto;
-    height: 4px;
-  }
 }
 
 nav {
@@ -214,37 +186,65 @@ nav {
   width: 80%;
 }
 
+/* Portfolio header */
+.head {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto 32px;
+  padding: 26px 0 0;
+  background: #1b1b1b;
+}
+
+.desktop-nav {
+  width: 80%;
+  gap: 24px;
+}
+
 .portfolio {
-  font-size: 58px;
   color: #2354f7;
+  font-family: 'Roboto', sans-serif;
+  font-size: 3.5rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 0.04em;
+  line-height: 1;
   margin: 0;
 }
 
 .menu-desktop {
   display: flex;
   list-style: none;
-  gap: 32px;
+  gap: 2rem;
   margin: 0;
 }
 
 .menu-desktop li a {
-  text-decoration: none;
   color: #2354f7;
-  font-size: 36px;
+  font-size: 1.5rem;
   font-weight: 500;
-  transition: color 0.2s;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .menu-desktop li a:hover {
-  color: #142a72;
+  color: #2354f7;
 }
 
-.line {
-  width: 80%;
-  height: 4px;
-  background: #2354f7;
-  margin: 0 auto 48px auto;
-  border-radius: 4px;
+@media (max-width: 1080px) and (min-width: 961px) {
+  .portfolio {
+    font-size: 3rem;
+  }
+
+  .menu-desktop {
+    gap: 1.25rem;
+  }
+
+  .menu-desktop li a {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio {
+    font-size: 2.35rem;
+  }
 }

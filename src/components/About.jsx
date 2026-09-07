@@ -4,7 +4,6 @@ export default function About() {
     return (
     <section className="about" id="sobre">
         <h2>Sobre mim</h2>
-        <div className="lineAbout"></div>
         <p>
         Tenho mais de 15 anos de experiência em tecnologia, atuando principalmente com suporte de TI. Em 2022 decidi migrar para o desenvolvimento, focando em front-end por afinidade com design e interfaces visuais.<br/>
         </p>
