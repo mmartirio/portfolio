@@ -322,7 +322,8 @@
   color: #d9e0f2;
   font-size: 1.1rem;
   line-height: 1.7;
-  text-align: left;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .profile-actions {
@@ -423,11 +424,6 @@
   aspect-ratio: 1;
   margin: 12px 0 20px;
   border: 7px solid rgba(255, 255, 255, 0.14);
-}
-
-.profile-visual .profile-image:hover {
-  transform: none;
-  border-color: rgba(255, 255, 255, 0.14);
   background-image: var(--profile-background);
   background-position: center;
   background-size: cover;
@@ -460,25 +456,56 @@
   .intro-band .name-profile {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 40px 24px;
+    min-height: auto;
   }
 
   .intro-band .profile-content {
-    align-items: center;
+    align-items: flex-start;
     margin-left: 0;
+    order: 2;
   }
 
-  .profile-kicker,
-  .profile-lead {
-    text-align: center;
+  .intro-band .name-profile h3 {
+    text-align: left;
+  }
+
+  .profile-visual {
+    order: 1;
+    width: 110%;
+    margin-left: -5%;
+    min-height: 330px;
   }
 
   .profile-kicker {
+    text-align: left;
     margin-left: 0;
     white-space: normal;
   }
 
-  .profile-visual {
-    min-height: 330px;
+  .intro-band .svg-row {
+    flex-wrap: nowrap;
+    justify-content: center;
   }
 
+}
+
+@media (max-width: 480px) {
+  .intro-band .name-profile {
+    padding: 32px 16px;
+  }
+
+  .intro-band .svg-row {
+    gap: 8px;
+  }
+
+  .intro-band .svg-circle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .intro-band .svg-icon-small {
+    width: 22px;
+    height: 22px;
+  }
 }

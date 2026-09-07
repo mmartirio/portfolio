@@ -74,6 +74,7 @@
     background-color: #323233;
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
     list-style: none;
     margin: 0;
     
@@ -98,6 +99,7 @@
   }
   
   .mobile-nav ul li a {
+    box-sizing: border-box;
     color: #fff;
     text-decoration: none;
     font-size: 16px;
