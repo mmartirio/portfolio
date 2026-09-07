@@ -15,7 +15,6 @@ export default function Header() {
             <MobileMenu />
       </nav>
 
-      <div className="line"></div>
     </header>
   );
 }
