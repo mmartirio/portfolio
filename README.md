@@ -1,6 +1,23 @@
 # Portfólio - Marcos Martírio
 
 ---
+## Desenvolvimento
+
+Projeto em React + Vite.
+
+```bash
+npm install       # instala as dependências
+npm run dev       # inicia o servidor de desenvolvimento
+npm run build     # gera o build de produção na pasta dist/
+npm run preview   # serve o build de produção localmente
+npm run lint      # roda o ESLint
+npm run test      # roda os testes (Vitest)
+npm run format    # formata o código com o Prettier
+```
+
+A pasta `dist/` gerada pelo `npm run build` pode ser publicada em qualquer host de arquivos estáticos (Vercel, Netlify, GitHub Pages etc.).
+
+---
 ## Sobre Mim
 
 Olá! Eu sou Marcos Martírio, desenvolvedor Full Stack. Atuo há mais de 15 anos no mercado de tecnologia, com experiência sólida em suporte de TI. Em 2022, decidi migrar para o desenvolvimento, focando inicialmente em front-end por minha afinidade com design e composições visuais. Atualmente, estou expandindo meus conhecimentos em React.js, Java, Python, HTML5, CSS3 e JavaScript, além de criar APIs e projetos full stack com integração de IA (Ollama, ChatGPT).
