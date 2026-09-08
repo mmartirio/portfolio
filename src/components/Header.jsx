@@ -3,7 +3,7 @@ import MobileMenu from './MobileMenu';
 
 export default function Header() {
   return (
-    <header className="head" id="home">
+    <header className="head">
       <nav className="desktop-nav">
         <h1 className="portfolio">Portfólio</h1>
         <ul className="menu-desktop">

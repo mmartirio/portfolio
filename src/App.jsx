@@ -11,7 +11,7 @@ function App() {
     <div className="portfolio-shell">
       <Header />
       <main className="site-main">
-        <section className="intro-band">
+        <section className="intro-band" id="home">
           <Profile />
         </section>
         <About />
