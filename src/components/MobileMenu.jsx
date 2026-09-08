@@ -11,14 +11,16 @@ export default function MobileMenu() {
         className="menu-faketrigger"
         checked={open}
         onChange={() => setOpen(!open)}
-        aria-label="Abrir menu"
+        aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+        aria-expanded={open}
+        aria-controls="mobile-menu-list"
       />
-      <div className="menu-mobile" onClick={() => setOpen(!open)}>
+      <div className="menu-mobile" aria-hidden="true" onClick={() => setOpen(!open)}>
         <span className={open ? 'open' : ''}></span>
         <span className={open ? 'open' : ''}></span>
         <span className={open ? 'open' : ''}></span>
       </div>
-      <ul className={open ? 'open' : ''}>
+      <ul id="mobile-menu-list" className={open ? 'open' : ''}>
         <li><a href="#home" onClick={() => setOpen(false)}>Home</a></li>
         <li><a href="#sobre" onClick={() => setOpen(false)}>Sobre</a></li>
         <li><a href="#projetos" onClick={() => setOpen(false)}>Projetos</a></li>
