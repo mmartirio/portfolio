@@ -1,31 +1,35 @@
 .head {
   width: 100%;
-  background: transparent;
-  padding: 0;
-  margin-bottom: 50px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 26px 0 0;
+  background: #1b1b1b;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .desktop-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 80px;
-  width: 80%; 
-}
-
-/* Mobile Menu - oculto no desktop por padrão */
-.mobile-menu {
-  display: none;
+  width: 80%;
+  gap: 24px;
 }
 
 /* Media Query para 1080px de largura (orientação paisagem) */
 @media screen and (max-width: 1080px) and (min-width: 961px) {
   .head {
     width: 80%;
-    margin-bottom: 45px;
+  }
+
+  :root {
+    --header-h: 100px;
   }
 
   .desktop-nav {
@@ -55,17 +59,16 @@
 @media screen and (max-width: 960px) {
   .head {
     padding: 0;
-    margin-bottom: 40px;
+  }
+
+  :root {
+    --header-h: 95px;
   }
   
   .menu-desktop {
     display: none !important;
   }
-  
-  .mobile-menu {
-    display: block;
-  }
-  
+
   .desktop-nav {
     width: 80%;
     margin: 0 auto;
@@ -89,8 +92,8 @@
 
 /* Media Query para 600px */
 @media screen and (max-width: 600px) {
-  .head {
-    margin-bottom: 35px;
+  :root {
+    --header-h: 90px;
   }
   
   .desktop-nav {
@@ -114,8 +117,8 @@
 
 /* Media Query para 400px */
 @media screen and (max-width: 400px) {
-  .head {
-    margin-bottom: 30px;
+  :root {
+    --header-h: 80px;
   }
   
   .desktop-nav {
@@ -137,8 +140,8 @@
 
 /* Media Query para 240px */
 @media screen and (max-width: 240px) {
-  .head {
-    margin-bottom: 20px;
+  :root {
+    --header-h: 70px;
   }
   
   .desktop-nav {
@@ -163,8 +166,8 @@
 
 /* Media Query adicional para telas muito altas (orientação retrato) */
 @media screen and (max-width: 960px) and (min-height: 2000px) {
-  .head {
-    margin-bottom: 60px;
+  :root {
+    --header-h: 100px;
   }
   
   .desktop-nav {
@@ -184,20 +187,6 @@ nav {
   justify-content: center;
   gap: 5px;
   width: 80%;
-}
-
-/* Portfolio header */
-.head {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0 auto 32px;
-  padding: 26px 0 0;
-  background: #1b1b1b;
-}
-
-.desktop-nav {
-  width: 80%;
-  gap: 24px;
 }
 
 .portfolio {
