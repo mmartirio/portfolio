@@ -70,7 +70,7 @@ export default function Projects() {
           <article className="project-card" key={proj.name}>
             <a href={proj.url} target="_blank" rel="noopener noreferrer">
               {proj.image ? (
-                <img src={proj.image} alt={`Previa do projeto ${proj.name}`} className="card-img" />
+                <img src={proj.image} alt={`Previa do projeto ${proj.name}`} className="card-img" loading="lazy" decoding="async" />
               ) : (
                 <div className={`card-cover cover-${proj.cover.toLowerCase()}`} aria-label={`Identidade visual do projeto ${proj.name}`}>
                   <span>{proj.cover}</span>

@@ -2,7 +2,7 @@ import './Profile.css';
 
 // Importações individuais (mais simples e confiável)
 import profileImage from '../assets/Profile_sem_fundo.png';
-import backgroundImage from '../../assets/background-img.jpg';
+import backgroundImage from '../assets/background-img.jpg';
 import htmlIcon from '../assets/html-5-logo-svg-1.svg';
 import cssIcon from '../assets/css-3.svg';
 import jsIcon from '../assets/javascript-1.svg';
