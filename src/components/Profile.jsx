@@ -1,14 +1,21 @@
 import './Profile.css';
 
-// Importações individuais (mais simples e confiável)
-import profileImage from '../assets/Profile_sem_fundo.png';
-import backgroundImage from '../assets/background-img.jpg';
+import HeroArt from './HeroArt';
 import htmlIcon from '../assets/html-5-logo-svg-1.svg';
 import cssIcon from '../assets/css-3.svg';
 import jsIcon from '../assets/javascript-1.svg';
 import reactIcon from '../assets/react.svg';
 import pythonIcon from '../assets/python-5.svg';
 import javaIcon from '../assets/java.svg';
+
+const stack = [
+    { name: 'HTML5', icon: htmlIcon, color: '#e34f26' },
+    { name: 'CSS3', icon: cssIcon, color: '#1572b6' },
+    { name: 'JavaScript', icon: jsIcon, color: '#f7df1e' },
+    { name: 'React', icon: reactIcon, color: '#61dafb' },
+    { name: 'Python', icon: pythonIcon, color: '#3776ab' },
+    { name: 'Java', icon: javaIcon, color: '#f89820' },
+];
 
 export default function Profile() {
     return (
@@ -22,20 +29,16 @@ export default function Profile() {
                 <a className="primary-action" href="#projetos">Ver projetos <span aria-hidden="true">↗</span></a>
                 <a className="secondary-action" href="/Marcos_Martirio_CV_Desenvolvedor_Junior.pdf" download>Baixar CV</a>
             </div>
-            <div className="svg-row">
-                <div className="svg-circle"><img src={htmlIcon} alt="HTML5" className="svg-icon-small" /></div>
-                <div className="svg-circle"><img src={cssIcon} alt="CSS3" className="svg-icon-small" /></div>
-                <div className="svg-circle"><img src={jsIcon} alt="JavaScript" className="svg-icon-small" /></div>
-                <div className="svg-circle"><img src={reactIcon} alt="React" className="svg-icon-small" /></div>
-                <div className="svg-circle"><img src={pythonIcon} alt="Python" className="svg-icon-small" /></div>
-                <div className="svg-circle"><img src={javaIcon} alt="Java" className="svg-icon-small" /></div>
-            </div>
+            <ul className="stack-dock" aria-label="Tecnologias que uso">
+                {stack.map((tech) => (
+                    <li className="dock-item" key={tech.name} style={{ '--brand': tech.color }}>
+                        <img src={tech.icon} alt="" className="dock-icon" />
+                        <span className="dock-tip">{tech.name}</span>
+                    </li>
+                ))}
+            </ul>
         </div>
-        <div className="profile-visual" style={{ '--profile-background': `url(${backgroundImage})` }}>
-            <span className="visual-label">Disponível para novos projetos</span>
-            <img className="profile-image" src={profileImage} alt="Foto de perfil" />
-            <span className="visual-caption">Front-end, back-end e interfaces que fazem sentido.</span>
-        </div>
+        <HeroArt />
         </section>
     );
 }

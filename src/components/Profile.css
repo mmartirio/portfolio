@@ -19,17 +19,6 @@
   flex-shrink: 0;
 }
 
-.profile-image {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border-width: 4px;
-  border-style: solid;
-  margin-bottom: 30px;
-  object-fit: cover;
-  background-color: #2354f7;
-}
-
 .name-profile h2 {
   font-size: 42px;
   font-weight: 700;
@@ -51,46 +40,6 @@
 .name-profile span {
   color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.svg-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 30px 0;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.svg-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(30, 65, 180, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.svg-circle:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(30, 65, 180, 0.2);
-  border-color: #2354f7;
-}
-
-.svg-icon-small {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.svg-circle:hover .svg-icon-small {
-  transform: scale(1.1);
 }
 
 /* Landing page hero */
@@ -220,86 +169,6 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-.intro-band .svg-row {
-  justify-content: flex-start;
-  margin: 28px 0 0;
-  gap: 10px;
-}
-
-.intro-band .svg-circle {
-  width: 42px;
-  height: 42px;
-}
-
-.intro-band .svg-icon-small {
-  width: 25px;
-  height: 25px;
-}
-
-.profile-visual {
-  position: relative;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  min-height: 390px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 22px;
-  background: linear-gradient(145deg, rgba(35, 84, 247, 0.22), rgba(19, 19, 21, 0.6));
-}
-
-.profile-visual::before {
-  content: '';
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  background: rgba(35, 84, 247, 0.55);
-  filter: blur(28px);
-}
-
-.profile-visual .profile-image {
-  position: relative;
-  z-index: 1;
-  width: min(340px, 100%);
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  margin: 12px 0 20px;
-  border: 7px solid rgba(255, 255, 255, 0.14);
-  background-image: var(--profile-background);
-  background-position: center;
-  background-size: cover;
-}
-
-.visual-label,
-.visual-caption {
-  position: relative;
-  z-index: 1;
-  color: #d9e0f2;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.visual-label {
-  align-self: center;
-  color: #8fa9ff;
-  font-weight: 800;
-}
-
-.visual-caption {
-  max-width: 230px;
-  line-height: 1.5;
-  text-transform: none;
-}
-
 @media (max-width: 768px) {
   .intro-band .name-profile {
     grid-template-columns: 1fr;
@@ -320,20 +189,12 @@
 
   .profile-visual {
     order: 1;
-    width: 110%;
-    margin-left: -5%;
-    min-height: 330px;
   }
 
   .profile-kicker {
     text-align: left;
     margin-left: 0;
     white-space: normal;
-  }
-
-  .intro-band .svg-row {
-    flex-wrap: nowrap;
-    justify-content: center;
   }
 
 }
@@ -343,16 +204,144 @@
     padding: 32px 16px;
   }
 
-  .intro-band .svg-row {
-    gap: 8px;
+}
+/* ---------- Dock de tecnologias ---------- */
+.stack-dock {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin: 34px 0 0;
+  padding: 10px 12px;
+  list-style: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dock-item {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #2c2d35;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transform-origin: 50% 100%;
+  transition:
+    transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 300ms ease,
+    background 300ms ease,
+    opacity 300ms ease;
+}
+
+/* Reflexo na cor da tecnologia, aceso no hover */
+.dock-item::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 10px var(--brand);
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.dock-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Efeito "dock": o item cresce e os vizinhos acompanham */
+.dock-item:hover {
+  z-index: 2;
+  background: color-mix(in srgb, var(--brand) 22%, #2c2d35);
+  box-shadow:
+    0 12px 26px color-mix(in srgb, var(--brand) 40%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--brand) 60%, transparent);
+  transform: translateY(-10px) scale(1.32);
+}
+
+.dock-item:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.dock-item:hover .dock-icon {
+  transform: rotate(-8deg);
+}
+
+.dock-item:hover + .dock-item,
+.dock-item:has(+ .dock-item:hover) {
+  transform: translateY(-4px) scale(1.12);
+}
+
+.stack-dock:hover .dock-item:not(:hover) {
+  opacity: 0.6;
+}
+
+/* Nome da tecnologia (seletor com .stack-dock para vencer a regra antiga
+   ".name-profile span", que deixava o texto branco sobre branco) */
+.stack-dock .dock-tip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  padding: 4px 9px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #18181b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-shadow: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 6px) scale(0.8);
+  transition: opacity 200ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dock-item:hover .dock-tip {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+/* Setinha do rótulo */
+.stack-dock .dock-tip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border: 5px solid transparent;
+  border-top-color: #ffffff;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 480px) {
+  .stack-dock {
+    gap: 6px;
+    padding: 8px;
+    border-radius: 16px;
   }
 
-  .intro-band .svg-circle {
-    width: 38px;
-    height: 38px;
+  .dock-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
   }
 
-  .intro-band .svg-icon-small {
+  .dock-icon {
     width: 22px;
     height: 22px;
   }
