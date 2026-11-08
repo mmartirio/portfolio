@@ -1,7 +1,10 @@
-import { useRef } from 'react';
 import './HeroArt.css';
-import profileImage from '../assets/Profile_sem_fundo.png';
-import backgroundImage from '../assets/background-img.jpg';
+import { usePointerTilt } from '../hooks/usePointerTilt';
+
+// Caminhos fixos em /public: o index.html faz preload da foto (imagem do LCP)
+// antes mesmo de o JavaScript carregar.
+const PROFILE_SRC = '/hero/profile.webp';
+const CODE_BG_SRC = '/hero/code-bg.webp';
 
 const ORBIT_A = 'M196,100 a96,34 0 1,1 -192,0 a96,34 0 1,1 192,0';
 const ORBIT_B = 'M8,100 a92,26 0 1,0 184,0 a92,26 0 1,0 -184,0';
@@ -32,38 +35,43 @@ const BADGE_TEXT = 'DISPONÍVEL PARA NOVOS PROJETOS ✦ ';
 // Retrato "saindo do portal": o fundo fica preso no círculo, mas a cabeça
 // ultrapassa a borda. Cada camada se move numa profundidade diferente com o mouse.
 export default function HeroArt() {
-  const stageRef = useRef(null);
-
-  const handleMove = (event) => {
-    const stage = stageRef.current;
-    if (!stage || event.pointerType === 'touch') return;
-    const rect = stage.getBoundingClientRect();
-    stage.style.setProperty('--vx', ((event.clientX - rect.left) / rect.width - 0.5).toFixed(3));
-    stage.style.setProperty('--vy', ((event.clientY - rect.top) / rect.height - 0.5).toFixed(3));
-  };
-
-  const handleLeave = () => {
-    stageRef.current?.style.setProperty('--vx', '0');
-    stageRef.current?.style.setProperty('--vy', '0');
-  };
+  const tilt = usePointerTilt(
+    (stage, x, y) => {
+      stage.style.setProperty('--vx', (x - 0.5).toFixed(3));
+      stage.style.setProperty('--vy', (y - 0.5).toFixed(3));
+    },
+    (stage) => {
+      stage.style.setProperty('--vx', '0');
+      stage.style.setProperty('--vy', '0');
+    },
+  );
 
   return (
     <div className="profile-visual" data-parallax="-0.12">
-      <div className="art-stage" ref={stageRef} onPointerMove={handleMove} onPointerLeave={handleLeave}>
+      <div className="art-stage" {...tilt}>
         <span className="art-grid" aria-hidden="true" />
         <span className="art-glow" aria-hidden="true" />
 
         <Orbit />
 
         <div className="art-portal" aria-hidden="true">
-          <span className="portal-code" style={{ backgroundImage: `url(${backgroundImage})` }} />
+          <span className="portal-code" style={{ backgroundImage: `url(${CODE_BG_SRC})` }} />
           <span className="portal-tint" />
           <span className="portal-scan" />
         </div>
         <span className="art-ring" aria-hidden="true" />
 
         <div className="art-portrait">
-          <img className="art-photo" src={profileImage} alt="Foto de Marcos Martirio" />
+          <img
+            className="art-photo"
+            src={PROFILE_SRC}
+            alt="Foto de Marcos Martirio"
+            width="800"
+            height="817"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
         </div>
 
         <Orbit front />

@@ -3,7 +3,8 @@ import './Footer.css';
 import whatsappIcon from '../assets/whatsapp_3536479.png';
 import linkedinIcon from '../assets/linkedin_3536569.png';
 import githubIcon from '../assets/github_3291695.png';
-import profileImage from '../assets/Profile_sem_fundo.png';
+// Mesma foto do topo (já em cache pelo preload do index.html).
+const PROFILE_SRC = '/hero/profile.webp';
 
 const WHATSAPP_URL =
   'https://wa.me/5579991071656?text=Ol%C3%A1,%20dei%20uma%20olhada%20em%20seu%20portfolio%20e%20entrei%20em%20contato.';
@@ -69,13 +70,13 @@ function WhatsAppChat() {
       data-reveal="up"
     >
       <span className="wa-photo" aria-hidden="true">
-        <img src={profileImage} alt="" />
+        <img src={PROFILE_SRC} alt="" width="800" height="817" loading="lazy" decoding="async" />
       </span>
 
       <span className="wa-window" aria-hidden="true">
         <span className="wa-header">
           <span className="wa-avatar">
-            <img src={profileImage} alt="" />
+            <img src={PROFILE_SRC} alt="" width="36" height="36" loading="lazy" decoding="async" />
           </span>
           <span className="wa-who">
             <strong>Marcos Martirio</strong>

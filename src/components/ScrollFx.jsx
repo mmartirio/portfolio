@@ -1,53 +1,82 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { prefersReducedMotion } from '../hooks/useScrollReveal';
 import './ScrollFx.css';
 
-// Um único loop de animação para todos os efeitos ligados à rolagem:
-// - barra de progresso (--scroll-progress no <html>)
-// - parallax em [data-parallax="velocidade"]
+const PARALLAX_LIMIT = 60;
+
+// Efeitos ligados à rolagem:
+// - barra de progresso
+// - parallax em [data-parallax="velocidade"] (--parallax-y)
 // - pilha de painéis em [data-stack] (--stack-p)
+//
+// Desempenho: só roda quando há rolagem/redimensionamento (um frame por vez)
+// e faz TODAS as leituras de layout antes de qualquer escrita, para não
+// forçar o navegador a recalcular o layout no meio do frame.
 export default function ScrollFx() {
+  const barRef = useRef(null);
+
   useEffect(() => {
     if (prefersReducedMotion()) return undefined;
 
-    const root = document.documentElement;
+    // Deslocamento já aplicado em cada elemento com parallax: o
+    // getBoundingClientRect inclui o translate, então descontamos.
+    const applied = new WeakMap();
     let frame = 0;
 
-    const tick = () => {
+    const update = () => {
+      frame = 0;
+
+      // ---------- Leituras ----------
       const y = window.scrollY;
       const vh = window.innerHeight;
-      const max = Math.max(1, root.scrollHeight - vh);
+      const max = Math.max(1, document.documentElement.scrollHeight - vh);
 
-      root.style.setProperty('--scroll-progress', (y / max).toFixed(4));
+      const parallax = [...document.querySelectorAll('[data-parallax]')].map((el) => ({
+        el,
+        rect: el.getBoundingClientRect(),
+      }));
 
-      document.querySelectorAll('[data-parallax]').forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.bottom < -200 || rect.top > vh + 200) return;
+      const stack = [...document.querySelectorAll('[data-stack]')];
+      const stackRects = stack.map((el) => el.getBoundingClientRect());
+
+      // ---------- Escritas ----------
+      if (barRef.current) barRef.current.style.transform = `scaleX(${(y / max).toFixed(4)})`;
+
+      for (const { el, rect } of parallax) {
+        const current = applied.get(el) ?? 0;
+        const top = rect.top - current;
+        if (rect.bottom < -200 || top > vh + 200) continue;
         const speed = Number(el.dataset.parallax) || 0.15;
-        const raw = (rect.top + rect.height / 2 - vh / 2) * speed;
-        const offset = Math.max(-60, Math.min(60, raw));
-        el.style.setProperty('--parallax-y', `${offset.toFixed(1)}px`);
-      });
-
-      // Pilha de painéis: quanto o próximo já cobriu o atual (0 a 1).
-      const stack = document.querySelectorAll('[data-stack]');
-      stack.forEach((el, i) => {
-        const next = stack[i + 1];
-        let progress = 0;
-        if (next) {
-          const rect = el.getBoundingClientRect();
-          const nextTop = next.getBoundingClientRect().top;
-          progress = Math.min(1, Math.max(0, 1 - (nextTop - rect.top) / rect.height));
+        const raw = (top + rect.height / 2 - vh / 2) * speed;
+        const offset = Math.round(Math.max(-PARALLAX_LIMIT, Math.min(PARALLAX_LIMIT, raw)) * 10) / 10;
+        if (offset !== current) {
+          applied.set(el, offset);
+          el.style.setProperty('--parallax-y', `${offset}px`);
         }
+      }
+
+      // Pilha: quanto o próximo painel já cobriu o atual (0 a 1).
+      stack.forEach((el, i) => {
+        const next = stackRects[i + 1];
+        const rect = stackRects[i];
+        const progress = next ? Math.min(1, Math.max(0, 1 - (next.top - rect.top) / rect.height)) : 0;
         el.style.setProperty('--stack-p', progress.toFixed(3));
       });
-
-      frame = requestAnimationFrame(tick);
     };
 
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    schedule();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+    };
   }, []);
 
-  return <div className="scroll-progress" aria-hidden="true" />;
+  return <div className="scroll-progress" ref={barRef} aria-hidden="true" />;
 }

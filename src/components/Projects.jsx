@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './Projects.css';
 import { useProjects } from '../hooks/useProjects';
 import { prefersReducedMotion } from '../hooks/useScrollReveal';
+import { usePointerTilt } from '../hooks/usePointerTilt';
 
 import { techGroups, skills } from '../data/studies';
 // Capturas reais da primeira dobra de cada site (gerado por `npm run screenshots`).
@@ -111,25 +112,20 @@ function domainOf(url) {
 // Painel de estudo de caso: gruda no topo e o próximo empilha por cima.
 // A janela de navegador inclina em 3D acompanhando o mouse.
 function ProjectPanel({ project, index, total }) {
-  const visualRef = useRef(null);
   const [title, scramble] = useScramble(project.name);
 
-  const handleMove = (event) => {
-    const el = visualRef.current;
-    if (!el || event.pointerType === 'touch') return;
-    const rect = el.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width;
-    const y = (event.clientY - rect.top) / rect.height;
-    el.style.setProperty('--mx', `${(x * 100).toFixed(1)}%`);
-    el.style.setProperty('--my', `${(y * 100).toFixed(1)}%`);
-    el.style.setProperty('--px', (x - 0.5).toFixed(3));
-    el.style.setProperty('--py', (y - 0.5).toFixed(3));
-  };
-
-  const handleLeave = () => {
-    visualRef.current?.style.setProperty('--px', '0');
-    visualRef.current?.style.setProperty('--py', '0');
-  };
+  const tilt = usePointerTilt(
+    (el, x, y) => {
+      el.style.setProperty('--mx', `${(x * 100).toFixed(1)}%`);
+      el.style.setProperty('--my', `${(y * 100).toFixed(1)}%`);
+      el.style.setProperty('--px', (x - 0.5).toFixed(3));
+      el.style.setProperty('--py', (y - 0.5).toFixed(3));
+    },
+    (el) => {
+      el.style.setProperty('--px', '0');
+      el.style.setProperty('--py', '0');
+    },
+  );
 
   const accent = accentColor(project.themeColor);
   const techs = (project.technologies || '').split(/\s*[·,]\s*/).filter(Boolean);
@@ -166,7 +162,7 @@ function ProjectPanel({ project, index, total }) {
           </a>
         </div>
 
-        <div className="showcase-visual" data-reveal="up" style={{ '--i': 1 }} ref={visualRef} onPointerMove={handleMove} onPointerLeave={handleLeave}>
+        <div className="showcase-visual" data-reveal="up" style={{ '--i': 1 }} {...tilt}>
           <div className="browser">
             <div className="browser-bar" aria-hidden="true">
               <span className="browser-dots">

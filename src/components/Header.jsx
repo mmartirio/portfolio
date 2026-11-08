@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './Header.css';
 import MobileMenu from './MobileMenu';
 
@@ -39,21 +39,57 @@ export default function Header() {
   const listRef = useRef(null);
   const linkRefs = useRef({});
 
+  const positions = useRef({});
+  const target = hovered ?? active;
+  const targetRef = useRef(target);
+
+  // Lê scrollY no próximo frame (no máximo um por frame), não no meio do evento.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 24);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(check);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
-  // Move a "pílula" para o link sob o mouse ou para a seção ativa.
-  useLayoutEffect(() => {
+  // Escreve a posição da "pílula" a partir das medidas guardadas (só escrita).
+  const placeIndicator = useCallback(() => {
     const list = listRef.current;
-    const target = linkRefs.current[hovered ?? active];
-    if (!list || !target) return;
-    list.style.setProperty('--ind-x', `${target.offsetLeft}px`);
-    list.style.setProperty('--ind-w', `${target.offsetWidth}px`);
-  }, [hovered, active, scrolled]);
+    const pos = positions.current[targetRef.current];
+    if (!list || !pos) return;
+    list.style.setProperty('--ind-x', `${pos.x}px`);
+    list.style.setProperty('--ind-w', `${pos.w}px`);
+  }, []);
+
+  // Mede os links quando o layout já está pronto (callback do ResizeObserver),
+  // em vez de forçar um cálculo de layout no meio da renderização.
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list || !('ResizeObserver' in window)) return undefined;
+    const ro = new ResizeObserver(() => {
+      for (const [id, el] of Object.entries(linkRefs.current)) {
+        if (el) positions.current[id] = { x: el.offsetLeft, w: el.offsetWidth };
+      }
+      placeIndicator();
+    });
+    ro.observe(list);
+    return () => ro.disconnect();
+  }, [placeIndicator]);
+
+  // Move a "pílula" para o link sob o mouse ou para a seção ativa.
+  useEffect(() => {
+    targetRef.current = target;
+    placeIndicator();
+  }, [target, placeIndicator]);
 
   return (
     <header className={`head${scrolled ? ' is-scrolled' : ''}`}>
