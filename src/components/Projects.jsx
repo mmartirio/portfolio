@@ -5,12 +5,10 @@ import { prefersReducedMotion } from '../hooks/useScrollReveal';
 import { usePointerTilt } from '../hooks/usePointerTilt';
 
 import { techGroups, skills } from '../data/studies';
-// Capturas reais da primeira dobra de cada site (gerado por `npm run screenshots`).
 import screenshots from '../data/screenshots.json';
 
 const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*+<>/';
 
-// Embaralha o texto e o "decodifica" letra por letra.
 function useScramble(text) {
   const [scrambled, setDisplay] = useState(null);
   const timer = useRef(0);
@@ -45,8 +43,6 @@ function useScramble(text) {
   return [display, play];
 }
 
-// Usa a theme-color do site, exceto tons quase pretos/brancos que sumiriam
-// no fundo escuro do card.
 function accentColor(hex) {
   const match = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(hex ?? '');
   if (!match) return '#2354f7';
@@ -65,7 +61,6 @@ function initials(name = '') {
     .join('');
 }
 
-// Ordem: captura real do site > og:image do site > capa gerada.
 function ProjectMedia({ project }) {
   const sources = [screenshots[project.id], project.image].filter(Boolean);
   const [failed, setFailed] = useState(0);
@@ -109,8 +104,6 @@ function domainOf(url) {
   }
 }
 
-// Painel de estudo de caso: gruda no topo e o próximo empilha por cima.
-// A janela de navegador inclina em 3D acompanhando o mouse.
 function ProjectPanel({ project, index, total }) {
   const [title, scramble] = useScramble(project.name);
 
@@ -183,7 +176,6 @@ function ProjectPanel({ project, index, total }) {
   );
 }
 
-// Estudos e práticas: tecnologias por área e skills aplicadas (sem projetos).
 function Studies() {
   return (
     <div className="practice">

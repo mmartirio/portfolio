@@ -4,29 +4,18 @@ import './ScrollFx.css';
 
 const PARALLAX_LIMIT = 60;
 
-// Efeitos ligados à rolagem:
-// - barra de progresso
-// - parallax em [data-parallax="velocidade"] (--parallax-y)
-// - pilha de painéis em [data-stack] (--stack-p)
-//
-// Desempenho: só roda quando há rolagem/redimensionamento (um frame por vez)
-// e faz TODAS as leituras de layout antes de qualquer escrita, para não
-// forçar o navegador a recalcular o layout no meio do frame.
 export default function ScrollFx() {
   const barRef = useRef(null);
 
   useEffect(() => {
     if (prefersReducedMotion()) return undefined;
 
-    // Deslocamento já aplicado em cada elemento com parallax: o
-    // getBoundingClientRect inclui o translate, então descontamos.
     const applied = new WeakMap();
     let frame = 0;
 
     const update = () => {
       frame = 0;
 
-      // ---------- Leituras ----------
       const y = window.scrollY;
       const vh = window.innerHeight;
       const max = Math.max(1, document.documentElement.scrollHeight - vh);
@@ -39,7 +28,6 @@ export default function ScrollFx() {
       const stack = [...document.querySelectorAll('[data-stack]')];
       const stackRects = stack.map((el) => el.getBoundingClientRect());
 
-      // ---------- Escritas ----------
       if (barRef.current) barRef.current.style.transform = `scaleX(${(y / max).toFixed(4)})`;
 
       for (const { el, rect } of parallax) {
@@ -55,7 +43,6 @@ export default function ScrollFx() {
         }
       }
 
-      // Pilha: quanto o próximo painel já cobriu o atual (0 a 1).
       stack.forEach((el, i) => {
         const next = stackRects[i + 1];
         const rect = stackRects[i];

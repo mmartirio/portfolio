@@ -7,7 +7,6 @@
     display: block;
   }
 
-  /* Botão hambúrguer que vira "X" */
   .menu-toggle {
     position: relative;
     z-index: 1002;
@@ -53,7 +52,6 @@
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Painel em tela cheia que abre em círculo a partir do botão */
   .mobile-nav ul {
     position: fixed;
     inset: 0;

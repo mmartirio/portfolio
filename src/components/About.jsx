@@ -26,7 +26,6 @@ const services = [
   },
 ];
 
-// Conta de `from` até `value` quando o número aparece na tela.
 function CountUp({ value, from = 0, suffix = '' }) {
   const ref = useRef(null);
   const [current, setCurrent] = useState(value);

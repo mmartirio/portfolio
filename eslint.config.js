@@ -29,7 +29,6 @@ export default defineConfig([
     },
   },
   {
-    // Código que roda no Node (Vercel Functions e config do Vite).
     files: ['api/**/*.js', 'server/**/*.js', 'scripts/**/*.mjs', 'vite.config.js'],
     languageOptions: {
       globals: { ...globals.node },

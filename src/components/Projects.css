@@ -69,7 +69,6 @@
     line-height: 1.7;
 }
 
-/* ---------- Grupos ---------- */
 .project-group + .project-group {
     margin-top: 110px;
 }
@@ -93,7 +92,6 @@
     letter-spacing: -0.01em;
 }
 
-/* Contador em selo com fundo sólido */
 .group-heading span {
     display: inline-grid;
     place-items: center;
@@ -112,9 +110,6 @@
     line-height: 1;
 }
 
-/* =========================================================
-   Painéis de estudo de caso empilháveis
-   ========================================================= */
 .stack-list {
     display: flex;
     flex-direction: column;
@@ -122,8 +117,6 @@
     padding: 0;
 }
 
-/* Cada painel gruda no topo; o seguinte desliza por cima.
-   --stack-p (0 a 1) vem do ScrollFx e faz o painel coberto recuar. */
 .stack-item {
     position: sticky;
     top: calc(var(--header-h) + 24px + var(--n, 0) * 14px);
@@ -153,7 +146,6 @@
     will-change: transform;
 }
 
-/* Textura de pontos discreta */
 .showcase::before {
     content: '';
     position: absolute;
@@ -165,7 +157,6 @@
     pointer-events: none;
 }
 
-/* ---------- Informações ---------- */
 .showcase-info {
     position: relative;
     z-index: 1;
@@ -238,7 +229,6 @@
     font-weight: 600;
 }
 
-/* Botão com seta que gira e fundo que preenche */
 .showcase-cta {
     position: relative;
     display: inline-flex;
@@ -294,7 +284,6 @@
     transform: rotate(45deg);
 }
 
-/* ---------- Janela de navegador com inclinação 3D ---------- */
 .showcase-visual {
     --px: 0;
     --py: 0;
@@ -382,19 +371,16 @@
 
 .card-img {
     display: block;
-    /* A captura tem a mesma proporção da janela (16:10): aparece inteira. */
     object-fit: cover;
     object-position: top center;
     transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* No hover, um zoom leve que acompanha o mouse */
 .showcase-visual:hover .card-img {
     transform: scale(1.04) translate(calc(var(--px) * -10px), calc(var(--py) * -10px));
     transition-duration: 200ms;
 }
 
-/* Reflexo de luz que acompanha o mouse */
 .browser-glare {
     position: absolute;
     inset: 0;
@@ -414,7 +400,6 @@
     opacity: 1;
 }
 
-/* Capa gerada (quando o site não tem imagem) */
 .card-cover {
     position: relative;
     width: 100%;
@@ -499,7 +484,6 @@
     transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ---------- Estudos e práticas ---------- */
 .practice {
     display: flex;
     flex-direction: column;
@@ -516,7 +500,6 @@
     text-transform: uppercase;
 }
 
-/* Tecnologias agrupadas por área */
 .tech-groups {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -571,7 +554,6 @@
     background: rgba(35, 84, 247, 0.18);
 }
 
-/* Grade de skills */
 .skill-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -676,7 +658,6 @@
     }
 }
 
-/* Em telas pequenas os painéis ficam altos demais para empilhar */
 @media (max-width: 700px), (max-height: 640px) {
     .stack-item {
         position: static;

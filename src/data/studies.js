@@ -1,7 +1,3 @@
-// Conteúdo da seção "Estudos e práticas": tecnologias e skills consolidadas
-// a partir dos projetos de estudo (Gerenciador de custos, Calculadora de
-// combustível, TO-DO List, Tela de Login) e dos repositórios no GitHub.
-
 export const techGroups = [
   {
     title: 'Front-end',

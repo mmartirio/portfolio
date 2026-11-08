@@ -1,13 +1,3 @@
-// Captura a primeira dobra de cada projeto publicado (1440x900, 16:10, a
-// mesma proporção da janela de navegador dos cards), do jeito que o site
-// aparece quando aberto: espera carregar, aceita avisos de cookies e só
-// então tira a foto.
-//
-//   npm run screenshots
-//
-// Gera public/screenshots/<id>.webp e src/data/screenshots.json.
-// Rode de novo sempre que um projeto mudar de visual.
-// Usa o Chrome instalado (puppeteer-core); defina CHROME_PATH se precisar.
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import puppeteer from 'puppeteer-core';
@@ -41,7 +31,6 @@ if (!executablePath) {
 
 const wait = (ms) => new Promise((done) => setTimeout(done, ms));
 
-// Clica em "Sim" / "Aceitar" / "Accept" de banners de cookies, se houver.
 async function dismissCookieBanner(page) {
   const clicked = await page.evaluate(() => {
     const labels = /^(sim|aceitar|aceito|accept|ok|entendi|concordo|permitir)( todos| tudo| cookies)?$/i;

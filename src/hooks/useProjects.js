@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { projects as configured } from '../data/projects.js';
 import { mergeProject } from '../../server/projectMetadata.js';
 
-// Renderiza na hora com os dados locais e troca pelos dados lidos ao vivo
-// dos sites publicados assim que /api/projects responder.
 const initialProjects = configured.map((p) => mergeProject(p, null));
 
 export function useProjects() {
@@ -19,7 +17,6 @@ export function useProjects() {
         }
       })
       .catch(() => {
-        // Mantém os dados locais.
       });
     return () => controller.abort();
   }, []);

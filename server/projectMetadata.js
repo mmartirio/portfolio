@@ -1,6 +1,3 @@
-// Lê os metadados públicos (title, description, og:*, theme-color) dos sites
-// publicados e monta a lista de projetos do portfólio.
-// Usado pela função /api/projects (Vercel) e pelo servidor de dev do Vite.
 
 const FETCH_TIMEOUT_MS = 6000;
 const USER_AGENT = 'Mozilla/5.0 (compatible; PortfolioMetadataBot/1.0)';
@@ -49,8 +46,6 @@ function parseAttributes(tag) {
   return attrs;
 }
 
-// Resolve URLs relativas e corrige imagens publicadas apontando para
-// localhost (erro comum de build) usando a origem do próprio site.
 export function resolveUrl(value, pageUrl) {
   if (!value) return null;
   try {
@@ -98,7 +93,6 @@ export function parseMetadata(html, pageUrl) {
   };
 }
 
-// "Davi Foto Vídeo | Fotografia e vídeo..." -> "Davi Foto Vídeo"
 export function cleanName(title, siteName) {
   const candidate = siteName || title;
   if (!candidate) return null;
@@ -106,7 +100,6 @@ export function cleanName(title, siteName) {
   return name && !GENERIC_TITLES.test(name) ? name : null;
 }
 
-// Remove o prefixo repetido "Nome - " das descrições.
 export function cleanDescription(description, name) {
   if (!description || GENERIC_DESCRIPTIONS.some((re) => re.test(description))) return null;
   if (name) {
@@ -144,7 +137,6 @@ function productionUrl(project) {
   return domain ? `https://${domain}` : null;
 }
 
-// Descoberta automática: lista os projetos da conta Vercel (requer token).
 export async function discoverVercelProjects({ token, teamId, fetchImpl = fetch }) {
   if (!token) return [];
   const params = new URLSearchParams({ limit: '100' });
@@ -215,7 +207,6 @@ export async function getProjects({ projects, excluded = [], env = {}, fetchImpl
       fallback: { name: prettifySlug(p.vercelProject), description: '' },
     }));
 
-  // Projetos novos (descobertos) aparecem primeiro.
   const all = [...extra, ...projects];
   const metadata = await Promise.all(all.map((p) => fetchMetadata(p.url, fetchImpl)));
   return all.map((p, i) => mergeProject(p, metadata[i]));

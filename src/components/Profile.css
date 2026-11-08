@@ -42,7 +42,6 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Landing page hero */
 .intro-band .name-profile {
   width: 100%;
   box-sizing: border-box;
@@ -205,7 +204,6 @@
   }
 
 }
-/* ---------- Dock de tecnologias ---------- */
 .stack-dock {
   display: flex;
   align-items: flex-end;
@@ -238,7 +236,6 @@
     opacity 300ms ease;
 }
 
-/* Reflexo na cor da tecnologia, aceso no hover */
 .dock-item::after {
   content: '';
   position: absolute;
@@ -261,7 +258,6 @@
   transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Efeito "dock": o item cresce e os vizinhos acompanham */
 .dock-item:hover {
   z-index: 2;
   background: color-mix(in srgb, var(--brand) 22%, #2c2d35);
@@ -289,8 +285,6 @@
   opacity: 0.6;
 }
 
-/* Nome da tecnologia (seletor com .stack-dock para vencer a regra antiga
-   ".name-profile span", que deixava o texto branco sobre branco) */
 .stack-dock .dock-tip {
   position: absolute;
   bottom: calc(100% + 10px);
@@ -317,7 +311,6 @@
   transform: translate(-50%, 0) scale(1);
 }
 
-/* Setinha do rótulo */
 .stack-dock .dock-tip::after {
   content: '';
   position: absolute;

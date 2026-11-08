@@ -1,16 +1,12 @@
 import './HeroArt.css';
 import { usePointerTilt } from '../hooks/usePointerTilt';
 
-// Caminhos fixos em /public: o index.html faz preload da foto (imagem do LCP)
-// antes mesmo de o JavaScript carregar.
 const PROFILE_SRC = '/hero/profile.webp';
 const CODE_BG_SRC = '/hero/code-bg.webp';
 
 const ORBIT_A = 'M196,100 a96,34 0 1,1 -192,0 a96,34 0 1,1 192,0';
 const ORBIT_B = 'M8,100 a92,26 0 1,0 184,0 a92,26 0 1,0 -184,0';
 
-// O mesmo anel é desenhado duas vezes: atrás do retrato (metade de cima) e na
-// frente (metade de baixo), dando a sensação de órbita em volta da cabeça.
 function Orbit({ front = false }) {
   return (
     <svg className={`art-orbit${front ? ' art-orbit-front' : ''}`} viewBox="0 0 200 200" aria-hidden="true">
@@ -32,8 +28,6 @@ function Orbit({ front = false }) {
 
 const BADGE_TEXT = 'DISPONÍVEL PARA NOVOS PROJETOS ✦ ';
 
-// Retrato "saindo do portal": o fundo fica preso no círculo, mas a cabeça
-// ultrapassa a borda. Cada camada se move numa profundidade diferente com o mouse.
 export default function HeroArt() {
   const tilt = usePointerTilt(
     (stage, x, y) => {

@@ -64,7 +64,6 @@ body {
   border: 0;
 }
 
-/* ---------- Entrada do hero ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .profile-content > * {
     animation: hero-rise 1100ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
@@ -77,7 +76,6 @@ body {
   .profile-content > :nth-child(5) { animation-delay: 540ms; }
   .profile-content > :nth-child(6) { animation-delay: 660ms; }
 
-  /* Nome entra "por trás de uma cortina" */
   .profile-content h2 span {
     display: inline-block;
     animation: hero-curtain 1300ms cubic-bezier(0.77, 0, 0.18, 1) backwards;

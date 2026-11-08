@@ -1,15 +1,3 @@
-// Lista curada de projetos exibidos no portfólio.
-//
-// Nome, descrição, imagem e cor de cada projeto são lidos AO VIVO do próprio
-// site publicado (tags <title>, description, og:*, theme-color) pela função
-// /api/projects. Assim, quando um projeto muda, o portfólio muda junto.
-//
-// - `fallback`: usado apenas se o site estiver fora do ar ou com metadados
-//   genéricos (ex.: "Document", "React App").
-// - `override`: sempre vence o dado ao vivo. Use só quando o site não tiver
-//   metadados bons e você não puder corrigi-los na origem.
-// - `vercelProject`: nome do projeto no Vercel. Liga o item à descoberta
-//   automática, evitando duplicatas.
 
 export const projects = [
   {
@@ -58,10 +46,8 @@ export const projects = [
   },
 ];
 
-// Projetos do Vercel que nunca devem aparecer via descoberta automática.
 export const excludedVercelProjects = [
   'portfolio',
-  // Estudos: aparecem só como tecnologias/skills em src/data/studies.js.
   'gerenciador-de-custos-de-projetos',
   'calculadora-combustivel-web',
   'to-do-lst',

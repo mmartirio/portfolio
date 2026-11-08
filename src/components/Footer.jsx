@@ -3,13 +3,11 @@ import './Footer.css';
 import whatsappIcon from '../assets/whatsapp_3536479.png';
 import linkedinIcon from '../assets/linkedin_3536569.png';
 import githubIcon from '../assets/github_3291695.png';
-// Mesma foto do topo (já em cache pelo preload do index.html).
 const PROFILE_SRC = '/hero/profile.webp';
 
 const WHATSAPP_URL =
   'https://wa.me/5579991071656?text=Ol%C3%A1,%20dei%20uma%20olhada%20em%20seu%20portfolio%20e%20entrei%20em%20contato.';
 
-// O símbolo dos ícones é vazado: a cor de fundo (--brand) aparece através dele.
 const contacts = [
   {
     name: 'WhatsApp',
@@ -44,8 +42,6 @@ const contacts = [
   },
 ];
 
-// Ícone de e-mail no mesmo estilo dos PNGs: quadrado escuro com o símbolo
-// na cor de --brand ao passar o mouse.
 function MailIcon() {
   return (
     <span className="contact-icon contact-icon-svg" aria-hidden="true">
@@ -57,8 +53,6 @@ function MailIcon() {
   );
 }
 
-// CTA de WhatsApp em forma de conversa: a foto "sai" da janela de chat e o
-// campo de mensagem é o botão que abre o WhatsApp.
 function WhatsAppChat() {
   return (
     <a

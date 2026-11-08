@@ -9,7 +9,6 @@ const sections = [
   { id: 'fale-comigo', label: 'Contato' },
 ];
 
-// Marca a seção visível no momento (scroll spy).
 function useActiveSection() {
   const [active, setActive] = useState('home');
 
@@ -43,7 +42,6 @@ export default function Header() {
   const target = hovered ?? active;
   const targetRef = useRef(target);
 
-  // Lê scrollY no próximo frame (no máximo um por frame), não no meio do evento.
   useEffect(() => {
     let frame = 0;
     const check = () => {
@@ -61,7 +59,6 @@ export default function Header() {
     };
   }, []);
 
-  // Escreve a posição da "pílula" a partir das medidas guardadas (só escrita).
   const placeIndicator = useCallback(() => {
     const list = listRef.current;
     const pos = positions.current[targetRef.current];
@@ -70,8 +67,6 @@ export default function Header() {
     list.style.setProperty('--ind-w', `${pos.w}px`);
   }, []);
 
-  // Mede os links quando o layout já está pronto (callback do ResizeObserver),
-  // em vez de forçar um cálculo de layout no meio da renderização.
   useEffect(() => {
     const list = listRef.current;
     if (!list || !('ResizeObserver' in window)) return undefined;
@@ -85,7 +80,6 @@ export default function Header() {
     return () => ro.disconnect();
   }, [placeIndicator]);
 
-  // Move a "pílula" para o link sob o mouse ou para a seção ativa.
   useEffect(() => {
     targetRef.current = target;
     placeIndicator();

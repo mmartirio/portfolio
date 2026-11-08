@@ -2,7 +2,6 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
-// Em dev, serve /api/projects com o mesmo código da Vercel Function.
 function projectsApiDev() {
   return {
     name: 'projects-api-dev',
@@ -24,9 +23,7 @@ function projectsApiDev() {
   }
 }
 
-// https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  // Disponibiliza VERCEL_API_TOKEN / VERCEL_TEAM_ID do .env.local em dev.
   Object.assign(process.env, loadEnv(mode, process.cwd(), 'VERCEL_'))
 
   return {
